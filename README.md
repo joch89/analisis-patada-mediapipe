@@ -1,7 +1,7 @@
 # 🥋 Análisis de Patada de Costado con MediaPipe y OpenCV
 
 **Autor:** José Chamorro  
-**Profesión:** Kinesiólogo · Quiropráctico · Especialista en Biomecánica y Data Science en Salud  
+**Profesión:** Kinesiólogo · Quiropráctico · Especialista en Biomecánica y entusiasta en Data Science.  
 **Repositorio:** [github.com/joch89](https://github.com/joch89)
 
 ---
