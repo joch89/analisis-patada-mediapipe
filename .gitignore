@@ -1,0 +1,23 @@
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos de entorno
+.env
+.venv/
+env/
+venv/
+
+# Archivos grandes o temporales
+#*.mp4
+*.avi
+*.mov
+*.csv
+
+# Carpetas específicas
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
