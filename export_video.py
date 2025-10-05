@@ -32,7 +32,7 @@ def main():
     pose_detector = setup_mediapipe_detector()
     mp_drawing = mp.solutions.drawing_utils
 
-    # Configurar writer de video
+    # Writer de video
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
     out = cv2.VideoWriter(OUTPUT_VIDEO, fourcc, fps, (width, height))
 
@@ -52,6 +52,8 @@ def main():
         if results.pose_landmarks:
             landmarks = results.pose_landmarks
             prev_kick_count = kick_counter
+
+            # Conteo y ángulo
             kick_counter, kick_stage, knee_angle = kick_counter_logic(
                 landmarks, width, height, kick_counter, kick_stage, angle_history
             )
@@ -59,7 +61,18 @@ def main():
             if kick_counter > prev_kick_count:
                 recorded_kick_angles.append(knee_angle)
 
+            # Dibujar landmarks
             frame = draw_pose_landmarks(frame, results, mp_drawing)
+
+            # Texto igual a main.py
+            cv2.putText(frame, f'Patadas: {kick_counter}', (10, 30),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
+            cv2.putText(frame, f'Etapa: {kick_stage}', (10, 70),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2, cv2.LINE_AA)
+            cv2.putText(frame, f'Angulo Cadera: {int(knee_angle)} grados', (10, 110),
+                        cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+
+            # Historial de patadas a la derecha
             frame = draw_kick_history(frame, width, recorded_kick_angles)
 
         out.write(frame)

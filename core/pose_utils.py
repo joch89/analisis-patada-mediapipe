@@ -66,8 +66,8 @@ def draw_pose_landmarks(image, detection_results, mp_drawing):
             image,
             detection_results.pose_landmarks,
             mp_pose.POSE_CONNECTIONS,
-            landmark_drawing_spec=mp_drawing.DrawingSpec(color=(245, 117, 66), thickness=4, circle_radius=4),
-            connection_drawing_spec=mp_drawing.DrawingSpec(color=(245, 66, 230), thickness=4, circle_radius=4)
+            landmark_drawing_spec=mp_drawing.DrawingSpec(color=(255, 0, 0), thickness=5, circle_radius=5),
+            connection_drawing_spec=mp_drawing.DrawingSpec(color=(0, 0, 255), thickness=5, circle_radius=5)
         )
     return image
 
@@ -88,8 +88,9 @@ def draw_kick_history(annotated_image, width, kick_history):
 
     line_spacing = 30
     for i, angle in enumerate(kick_history[-10:]):
-        text = f'Patada {i + 1}: {int(angle)}°'
+        text = f'Patada {i + 1}: {int(angle)} grados'
         text_y = y + (i + 1) * line_spacing
         cv2.putText(annotated_image, text, (x, text_y), font, 0.7, color, 2, cv2.LINE_AA)
 
     return annotated_image
+

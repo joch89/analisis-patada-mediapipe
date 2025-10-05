@@ -54,7 +54,7 @@ def draw_kick_history(annotated_image, width, kick_history):
     # Mostrar historial debajo
     line_spacing = 30
     for i, angle in enumerate(kick_history[-10:]):  # muestra las últimas 10 patadas
-        text = f'Patada {i + 1}: {int(angle)}°'
+        text = f'Patada {i + 1}: {int(angle)} grados'
         text_y = y + (i + 1) * line_spacing
         cv2.putText(annotated_image, text, (x, text_y),
                     font, 0.7, color, 2, cv2.LINE_AA)
@@ -108,7 +108,7 @@ def main():
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
             cv2.putText(frame, f'Etapa: {kick_stage}', (10, 70),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 255), 2, cv2.LINE_AA)
-            cv2.putText(frame, f'Angulo Cadera: {int(knee_angle)}°', (10, 110),
+            cv2.putText(frame, f'Angulo Cadera: {int(knee_angle)} grados', (10, 110),
                         cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
 
             # Mostrar historial de patadas en la derecha
