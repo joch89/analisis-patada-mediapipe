@@ -17,6 +17,11 @@ El objetivo es desarrollar una herramienta que permita analizar el rendimiento b
 - Detección automática de inicio y fin de patadas  
 - Contador de patadas y visualización en video  
 
+Video de Patadas procesadas
+![Patada procesada](imagenes/patadas_costado.gif)
+
+Imagen de Gráficos resultantes
+![gráfico](imagenes/Figure_1.png)
 
 ## 🧩 Estructura del proyecto
 
